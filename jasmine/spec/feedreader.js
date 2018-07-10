@@ -56,6 +56,7 @@ $(function() {
         //mycode
         let bodyClass = document.body.className;
         let menuIcon = $('.menu-icon-link');
+        let body = $('body');
 
 
         /* DONE: Write a test that ensures the menu element is
@@ -68,16 +69,17 @@ $(function() {
         });
         //TODO: will this fail when menu is shown?
 
-         /* TODO: Write a test that ensures the menu changes
+         /* DONE: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+         //credit: Sudhindra on https://knowledge.udacity.com/questions/4743 for education leading to this solution
          it('hides/shows when menu icon is clicked', function() {
-            menuIcon.trigger('click');
-            expect(bodyClass).not.toBeDefined();
-            menuIcon.trigger('click');
-            expect(bodyClass).toBe('menu-hidden');
+            menuIcon.click();
+            expect(body.hasClass('menu-hidden')).toBe(false);
+            menuIcon.click();
+            expect(body.hasClass('menu-hidden')).toBe(true);
          });
     });
 
