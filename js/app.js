@@ -6,8 +6,7 @@
  * jQuery.
  */
 
- //mycode
-const body = document.body.className;
+
 
 // The names and URLs to all of the feeds we'd like available.
 var allFeeds = [
