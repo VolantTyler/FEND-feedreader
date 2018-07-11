@@ -87,7 +87,6 @@ $(function() {
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
         let feedContainer = $('.feed');
-        let entryElement = $('.entry');
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -97,13 +96,16 @@ $(function() {
          */
 
         beforeEach(function(done) {
-            loadFeed(function() {
+            loadFeed(0, function() {
                 done();
             });
         });
 
         it('has at least one entry', function(done) {
-            expect(feedContainer)[0].hasClass(entryElement);
+            let entryElement = $('.entry');
+           // expect(entriesLen).toBeGreaterThan(0);
+           expect(entryElement[0]).toBeDefined();
+           // expect(feedContainer)[1].hasClass('entry');
             done();
         });
 
