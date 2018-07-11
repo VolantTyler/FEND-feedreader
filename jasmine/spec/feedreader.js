@@ -86,7 +86,6 @@ $(function() {
 
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
-        let feedContainer = $('.feed');
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -103,17 +102,33 @@ $(function() {
 
         it('has at least one entry', function(done) {
             let entryElement = $('.entry');
-           // expect(entriesLen).toBeGreaterThan(0);
-           expect(entryElement[0]).toBeDefined();
-           // expect(feedContainer)[1].hasClass('entry');
+            // expect(entriesLen).toBeGreaterThan(0);
+            expect(entryElement[0]).toBeDefined();
+            // expect(feedContainer)[1].hasClass('entry');
             done();
         });
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        
+        beforeEach(function(done) {
+            loadFeed(0);
+            loadFeed(1, function() {
+                done();
+            });
+        });
+
+        it('updates new content', function(done) {
+            let entryElement = $('.entry');
+
+            expect(entryElement[0].innerHTML).not.toEqual(entryElement[1].innerHTML);
+                done();
+        });
     });
 }());
