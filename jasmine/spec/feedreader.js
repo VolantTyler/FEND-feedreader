@@ -85,6 +85,9 @@ $(function() {
 
 
     /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function() {
+        let feedContainer = $('.feed');
+        let entryElement = $('.entry');
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -93,10 +96,22 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
 
+        beforeEach(function(done) {
+            loadFeed(function() {
+                done();
+            });
+        });
+
+        it('has at least one entry', function(done) {
+            expect(feedContainer)[0].hasClass(entryElement);
+            done();
+        });
+
     /* TODO: Write a new test suite named "New Feed Selection" */
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+    });
 }());
