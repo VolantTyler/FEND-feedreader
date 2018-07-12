@@ -100,9 +100,7 @@ $(function() {
 
         it('has at least one entry', function(done) {
             let entryElement = $('.entry');
-            // expect(entriesLen).toBeGreaterThan(0);
             expect(entryElement[0]).toBeDefined();
-            // expect(feedContainer)[1].hasClass('entry');
             done();
         });
     });
