@@ -54,7 +54,6 @@ $(function() {
     /* DONE: Write a new test suite named "The menu" */
     describe('The menu', function() {
         //mycode
-        let bodyClass = document.body.className;
         let menuIcon = $('.menu-icon-link');
         let body = $('body');
 
@@ -65,7 +64,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('is hidden by default', function() {
-            expect(bodyClass).toBe('menu-hidden');
+            expect(body.hasClass('menu-hidden')).toBe(true);
         });
         //TODO: will this fail when menu is shown?
 
