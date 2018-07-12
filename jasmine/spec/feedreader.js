@@ -53,7 +53,6 @@ $(function() {
 
     /* DONE: Write a new test suite named "The menu" */
     describe('The menu', function() {
-        //mycode
         let bodyClass = document.body.className;
         let menuIcon = $('.menu-icon-link');
         let body = $('body');
@@ -67,7 +66,6 @@ $(function() {
         it('is hidden by default', function() {
             expect(bodyClass).toBe('menu-hidden');
         });
-        //TODO: will this fail when menu is shown?
 
          /* DONE: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -84,10 +82,10 @@ $(function() {
     });
 
 
-    /* TODO: Write a new test suite named "Initial Entries" */
+    /* DONE: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
 
-        /* TODO: Write a test that ensures when the loadFeed
+        /* DONE: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
@@ -109,10 +107,10 @@ $(function() {
         });
     });
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
+    /* DONE: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
 
-        /* TODO: Write a test that ensures when a new feed is loaded
+        /* DONE: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
@@ -126,7 +124,6 @@ $(function() {
 
         it('updates new content', function(done) {
             let entryElement = $('.entry');
-
             expect(entryElement[0].innerHTML).not.toEqual(entryElement[1].innerHTML);
                 done();
         });
