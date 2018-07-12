@@ -53,7 +53,6 @@ $(function() {
 
     /* DONE: Write a new test suite named "The menu" */
     describe('The menu', function() {
-        let bodyClass = document.body.className;
         let menuIcon = $('.menu-icon-link');
         let body = $('body');
 
@@ -98,10 +97,9 @@ $(function() {
             });
         });
 
-        it('has at least one entry', function(done) {
+        it('has at least one entry', function() {
             let entryElement = $('.feed .entry');
             expect(entryElement[0]).toBeDefined();
-            done();
         });
     });
 
@@ -113,17 +111,25 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
         
+        // beforeEach(function(done) {
+        //     loadFeed(0);
+        //     loadFeed(1, function() {
+        //         done();
+        //     });
+        // });
+
         beforeEach(function(done) {
-            loadFeed(0);
-            loadFeed(1, function() {
-                done();
+            loadFeed(0, function () {  
+                feedOne = $('.feed .entry').html();
+                loadFeed(1, function () {
+                    feedTwo = $('.feed .entry').html();
+                    done();
+                });
             });
         });
 
-        it('updates new content', function(done) {
-            let entryElement = $('.entry');
-            expect(entryElement[0].innerHTML).not.toEqual(entryElement[1].innerHTML);
-                done();
+        it('updates new content', function() {
+            expect(feedOne).not.toEqual(feedTwo);
         });
     });
 }());
