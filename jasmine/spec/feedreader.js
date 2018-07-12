@@ -110,13 +110,6 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        
-        // beforeEach(function(done) {
-        //     loadFeed(0);
-        //     loadFeed(1, function() {
-        //         done();
-        //     });
-        // });
 
         beforeEach(function(done) {
             loadFeed(0, function () {  
